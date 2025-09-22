@@ -1,0 +1,17 @@
+{
+  "name": "shop_parser",
+  "version": "1.0.0",
+  "description": "# shop_parser",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node wb_parser.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.22.0"
+  }
+}

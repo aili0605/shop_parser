@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "060101",
+    "database": "wishlist_db",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+
+}
