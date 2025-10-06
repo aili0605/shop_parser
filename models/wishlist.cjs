@@ -11,27 +11,32 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-    
-      Wishlist.belongsTo(models.User,{
-          foreignKey: 'userId',
-          as:'user'
+      Wishlist.belongsTo(models.User, {
+        foreignKey: 'user_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       });
-
       Wishlist.belongsTo(models.Product,{
-        foreignKey: 'productId',
-        as: 'product'
+        foreignKey: 'product_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       });
-        Wishlist.hasMany(models.Shared_wishlist, {
-          foreignKey: 'wishlistId',
-          as: 'sharedLinks'
-      });
-    }
+    };
   }
-
   Wishlist.init({
-    userId: DataTypes.INTEGER,
-    productId: DataTypes.INTEGER,
-    addedAt: DataTypes.DATE
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    note: DataTypes.TEXT,
+    added_at: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    }
   }, {
     sequelize,
     modelName: 'Wishlist',

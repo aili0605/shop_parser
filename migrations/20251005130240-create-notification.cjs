@@ -27,19 +27,27 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      message: {
-        type: Sequelize.INTEGER
+      type: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      is_sent: {
-        type: Sequelize.BOOLEAN
+      message: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+      is_read: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW')
       }
     });
   },

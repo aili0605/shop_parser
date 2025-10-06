@@ -2,9 +2,8 @@
   "development": {
     "username": "postgres",
     "password": "060101",
-    "database": "wishlist_db",
-    "host": "localhost",
+    "database": "multi_wishlist_db",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   }
-
 }

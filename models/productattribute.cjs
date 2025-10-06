@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Shared_wishlist extends Model {
+  class ProductAttribute extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,24 +11,29 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Shared_wishlist.belongsTo(models.Wishlist,{
-        foreignKey: 'wishlistId',
-        as: 'wishlist'
+      ProductAttribute.belongsTo(models.Product,{
+        foreignKey: 'product_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       });
-    }
+    };
   }
-  Shared_wishlist.init({
-    wishlist_id: {
+  ProductAttribute.init({
+    product_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    share_token: {
+    attribute_name: {
       type: DataTypes.STRING,
       allowNull: false
-    }
- }, {
+    },
+    attribute_value: { 
+      type:DataTypes.STRING,
+      allowNull: false
+    },
+  }, {
     sequelize,
-    modelName: 'Shared_wishlist',
+    modelName: 'ProductAttribute',
   });
-  return Shared_wishlist;
+  return ProductAttribute;
 };

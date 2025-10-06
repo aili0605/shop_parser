@@ -2,36 +2,43 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Shared_wishlists', {
+    await queryInterface.createTable('ProductAttributes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      wishlist_id: {
+      product_id: {
         type: Sequelize.INTEGER,
         references:{
-          model: 'Wishlists',
+          model: 'Products',
           key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      share_token: {
-        type: Sequelize.STRING
+      attribute_name: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      attribute_value: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW')
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Shared_wishlists');
+    await queryInterface.dropTable('ProductAttributes');
   }
 };

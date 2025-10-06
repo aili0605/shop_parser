@@ -11,31 +11,51 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-    Product.belongsTo(models.Category,{
-      foreignKey: 'categoryId',
-      as: 'category'
+      Product.belongsTo(models.Brand, { 
+        foreignKey: 'brand_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE' 
+      });
+      Product.belongsTo(models.Category, { 
+        foreignKey: 'category_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      });
+      Product.hasMany(models.Wishlist, {
+        foreignKey: 'product_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
     });
-
-    Product.belongsTo(models.Seller,{
-      foreignKey: 'sellerId',
-      as: 'seller'
+      Product.hasMany(models.ProductAttribute,{ 
+        foreignKey: 'product_id', 
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
     });
-    Product.hasMany(models.Wishlist, {
-      foreignKey: 'productId',
-      as: 'wishlists'
+      Product.hasMany(models.Notification, { 
+        foreignKey: 'product_id', 
+        onDelete: 'CASCADE' ,
+        onUpdate: 'CASCADE'
     });
-
-    Product.hasMany(models.Notification, {
-      foreignKey: 'productId',
-      as: 'notifications'
-    });
+    }
   }
-}
   Product.init({
-    name: DataTypes.STRING,
-    price: DataTypes.FLOAT,
-    categoryId: DataTypes.INTEGER,
-    sellerId: DataTypes.INTEGER,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    brand_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    category_id:{ 
+      type:DataTypes.INTEGER,
+      allowNull: true
+    },
+    price: DataTypes.DECIMAL,
+    currency: DataTypes.STRING,
+    url: DataTypes.STRING,
+    image_url: DataTypes.STRING,
+    description: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Product',
