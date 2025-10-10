@@ -1,0 +1,6 @@
+2025/10/10-08:16:58.860 5a04 Reusing MANIFEST C:\shop_parser\user_data\Default\Local Storage\leveldb/MANIFEST-000001
+2025/10/10-08:16:58.871 5a04 Recovering log #4
+2025/10/10-08:16:58.877 5a04 Reusing old log C:\shop_parser\user_data\Default\Local Storage\leveldb/000004.log 
+2025/10/10-08:17:58.900 2310 Level-0 table #8: started
+2025/10/10-08:17:58.907 2310 Level-0 table #8: 12913 bytes OK
+2025/10/10-08:17:58.910 2310 Delete type=0 #4

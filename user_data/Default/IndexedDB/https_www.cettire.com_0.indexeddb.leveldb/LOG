@@ -1,0 +1,27 @@
+2025/10/10-08:19:21.356 c50 Reusing MANIFEST C:\shop_parser\user_data\Default\IndexedDB\https_www.cettire.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/10-08:19:21.357 c50 Recovering log #368
+2025/10/10-08:19:21.358 c50 Reusing old log C:\shop_parser\user_data\Default\IndexedDB\https_www.cettire.com_0.indexeddb.leveldb/000368.log 
+2025/10/10-08:19:21.358 c50 Delete type=2 #367
+2025/10/10-08:19:21.373 5d34 Manual compaction at level-0 from '\x00\xc5\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xc6\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/10/10-08:19:21.593 5d34 Manual compaction at level-0 from '\x00\xc6\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xc7\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/10/10-08:19:21.752 c50 Level-0 table #373: started
+2025/10/10-08:19:21.767 c50 Level-0 table #373: 3018 bytes OK
+2025/10/10-08:19:21.770 c50 Delete type=0 #368
+2025/10/10-08:19:21.775 c50 Manual compaction at level-0 from '\x00\xc8\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xc9\x00\x00\x00' @ 0 : 0; will stop at '\x00\xc8\x00\x00\x05' @ 11478 : 1
+2025/10/10-08:19:21.775 c50 Compacting 1@0 + 1@1 files
+2025/10/10-08:19:21.785 c50 Generated table #374@0: 1016 keys, 14039 bytes
+2025/10/10-08:19:21.785 c50 Compacted 1@0 + 1@1 files => 14039 bytes
+2025/10/10-08:19:21.786 c50 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/10/10-08:19:21.786 c50 Delete type=2 #373
+2025/10/10-08:19:21.789 c50 Manual compaction at level-0 from '\x00\xc8\x00\x00\x05' @ 11478 : 1 .. '\x00\xc9\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/10/10-08:19:22.460 c50 Level-0 table #376: started
+2025/10/10-08:19:22.463 c50 Level-0 table #376: 1357 bytes OK
+2025/10/10-08:19:22.464 c50 Delete type=2 #370
+2025/10/10-08:19:22.464 c50 Delete type=0 #372
+2025/10/10-08:19:22.466 c50 Manual compaction at level-0 from '\x00\xc9\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xca\x00\x00\x00' @ 0 : 0; will stop at '\x00\xc9\x01\x03\x03\x00\x00\x00\x00\x00\x00\xf0?' @ 11531 : 1
+2025/10/10-08:19:22.466 c50 Compacting 1@0 + 1@1 files
+2025/10/10-08:19:22.471 c50 Generated table #377@0: 1017 keys, 14107 bytes
+2025/10/10-08:19:22.471 c50 Compacted 1@0 + 1@1 files => 14107 bytes
+2025/10/10-08:19:22.472 c50 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/10/10-08:19:22.473 c50 Delete type=2 #376
+2025/10/10-08:19:22.475 c50 Manual compaction at level-0 from '\x00\xc9\x01\x03\x03\x00\x00\x00\x00\x00\x00\xf0?' @ 11531 : 1 .. '\x00\xca\x00\x00\x00' @ 0 : 0; will stop at (end)

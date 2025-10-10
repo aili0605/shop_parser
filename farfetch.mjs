@@ -2,6 +2,7 @@ import puppeteer from "puppeteer";
 import pkg from "pg";
 const { Client } = pkg;
 
+
 // подключение к PostgreSQL
 const client = new Client({
     user: "postgres",       
@@ -51,30 +52,53 @@ async function autoScroll(page){
 
 // Парсим категорию
 async function scrapeCategory(page, url, categoryId) {
+        if (!url || !url.startsWith("http")) {
+            console.warn("⚠️ Неверный URL:", url);
+            return;
+        }
+    console.log("Открываем:", url);
     await page.goto( url, {waitUntil: "domcontentloaded", timeout: 70000});
     
-    //показать все
     const showAllBtn = await page.$("#catalog-actions > div:nth-child(1) > button");
-    if (showAllBtn) await showAllBtn.click();
-    
+
+    if (showAllBtn) {
+        const box = await showAllBtn.boundingBox();
+        if (box) {
+            console.log("Кнопка 'Показать всё' найдена и видима, кликаем...");
+            await showAllBtn.click();
+            await new Promise(r => setTimeout(r, 2000));
+
+        } else {
+            console.log("Кнопка 'Показать всё' найдена, но невидима (возможно за пределами экрана)");
+        }
+    } else {
+        console.log("Кнопка 'Показать всё' не найдена на странице!");
+    }
+
     // ждем загрузку товаров
     await page.waitForSelector("#catalog-grid > li");
-    
-    // let leadMoreBtn = await page.$("button.ltr-6q0y14");
-    // while (leadMoreBtn) {
-        //     await leadMoreBtn.click();
-        //     await page.waitForTimeout(5000);
-        //     leadMoreBtn = await page.$("button.ltr-6q0y14");
-        // }
+
+    console.log("Прокручиваем страницу, чтобы подгрузились все товары...");
+    await autoScroll(page);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log("Прокрутка завершена.");
+
+    const buttons = await page.$$eval("button", btns => 
+    btns.map(b => ({
+        text: b.innerText,
+        classes: b.className,
+        id: b.id
+    }))
+    );
+    console.log("Найденные кнопки:", buttons);
 
         await autoScroll(page); // прокручиваем страницу до конца
-        
         // собираем товары
         const products = await page.$$eval("#catalog-grid > li", items =>
         items.map(el => ({
             brand: el.querySelector("p[data-component='ProductCardBrandName']")?.innerText || "",
-            title: el.querySelector("div.ltr-1aysmcq > p.ltr-4y8w0i-Body")?.innerText || "",
-            price: el.querySelector("#catalog-grid > li:nth-child(1) > div > div > a > div.ltr-f4e0fk > div.ltr-l3ndox")?.innerText || "",
+            title: el.querySelector("p[data-component='ProductCardDescription']")?.innerText || "",
+            price: el.querySelector("p[data-component='PriceFinal']")?.innerText || "",
             link: el.querySelector("a")?.href || "",
             img: el.querySelector("img")?.src || ""
         }))
@@ -107,8 +131,12 @@ async function scrapeCategory(page, url, categoryId) {
     } 
 }
 
+console.log("Подключена база данных:", client.database);
+
+
 // главная функция
 async function scrapeSite() {
+    console.log("Подключена база данных:", client.database);
     await client.connect();
 
     const browser = await puppeteer.launch({
@@ -142,26 +170,24 @@ async function scrapeSite() {
         timeout: 70000,
     });
 
-    const categoryLinks = await page.$$eval("#catalog-actions a", links => 
-        links.map((l, i) => ({
-            url: l.href,
-            id: i + 1
-        }))
-    );
+    // список категорий Puma 
+    const categories = [
+    { id: 1, name: "Обувь", url: "https://www.farfetch.com/kz/shopping/women/puma/items.aspx?category=136301" },
+    { id: 2, name: "Одежда", url: "https://www.farfetch.com/kz/shopping/women/puma/items.aspx?category=135967" },
+    { id: 3, name: "Аксессуары", url: "https://www.farfetch.com/kz/shopping/women/puma/items.aspx?category=135973" },
+    { id: 4, name: "Сумки", url: "https://www.farfetch.com/kz/shopping/women/puma/items.aspx?category=135971" }
+    ];
 
-    // проходим по каждой категории
-    for (let cat of categoryLinks){
-        // if (url) {
-            await scrapeCategory(page, cat.url, cat.id);
-        // }
+    // запускаем парсинг по каждой категории
+    for (let cat of categories) {
+    console.log(`\n🛍 Парсим категорию: ${cat.name}`);
+    await scrapeCategory(page, cat.url, cat.id);
     }
     
     await browser.close();
     await client.end();
     console.log("Все товары сохранены в базу");
-    // console.log(`Сохранено ${products.length} товаров: ${url}`);
 
 }
-    
 scrapeSite();
  

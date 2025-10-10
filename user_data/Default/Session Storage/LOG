@@ -1,0 +1,23 @@
+2025/10/10-08:16:59.115 5a04 Reusing MANIFEST C:\shop_parser\user_data\Default\Session Storage/MANIFEST-000001
+2025/10/10-08:16:59.117 5a04 Recovering log #110
+2025/10/10-08:16:59.119 5a04 Level-0 table #113: started
+2025/10/10-08:16:59.130 5a04 Level-0 table #113: 69575 bytes OK
+2025/10/10-08:16:59.141 5a04 Delete type=0 #110
+2025/10/10-08:17:08.610 2310 Level-0 table #116: started
+2025/10/10-08:17:08.619 2310 Level-0 table #116: 50781 bytes OK
+2025/10/10-08:17:08.622 2310 Delete type=0 #114
+2025/10/10-08:17:08.624 2310 Compacting 4@0 + 1@1 files
+2025/10/10-08:17:08.638 2310 Generated table #117@0: 332 keys, 54486 bytes
+2025/10/10-08:17:08.638 2310 Compacted 4@0 + 1@1 files => 54486 bytes
+2025/10/10-08:17:08.639 2310 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/10/10-08:17:08.642 2310 Delete type=2 #107
+2025/10/10-08:17:08.642 2310 Delete type=2 #109
+2025/10/10-08:17:08.642 2310 Delete type=2 #111
+2025/10/10-08:17:08.643 2310 Delete type=2 #113
+2025/10/10-08:17:08.643 2310 Delete type=2 #116
+2025/10/10-08:19:02.376 5a04 Level-0 table #119: started
+2025/10/10-08:19:02.382 5a04 Level-0 table #119: 79136 bytes OK
+2025/10/10-08:19:02.384 5a04 Delete type=0 #115
+2025/10/10-08:20:04.299 2310 Level-0 table #121: started
+2025/10/10-08:20:04.311 2310 Level-0 table #121: 71001 bytes OK
+2025/10/10-08:20:04.313 2310 Delete type=0 #118
