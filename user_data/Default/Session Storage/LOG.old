@@ -1,23 +1,17 @@
-2025/10/09-16:43:43.793 8bf0 Reusing MANIFEST C:\shop_parser\user_data\Default\Session Storage/MANIFEST-000001
-2025/10/09-16:43:43.795 8bf0 Recovering log #100
-2025/10/09-16:43:43.798 8bf0 Level-0 table #103: started
-2025/10/09-16:43:43.809 8bf0 Level-0 table #103: 68784 bytes OK
-2025/10/09-16:43:43.824 8bf0 Delete type=0 #100
-2025/10/09-16:43:53.063 77b8 Level-0 table #106: started
-2025/10/09-16:43:53.072 77b8 Level-0 table #106: 49788 bytes OK
-2025/10/09-16:43:53.075 77b8 Delete type=0 #104
-2025/10/09-16:43:53.077 77b8 Compacting 4@0 + 1@1 files
-2025/10/09-16:43:53.091 77b8 Generated table #107@0: 309 keys, 53369 bytes
-2025/10/09-16:43:53.091 77b8 Compacted 4@0 + 1@1 files => 53369 bytes
-2025/10/09-16:43:53.091 77b8 compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/10/09-16:43:53.093 77b8 Delete type=2 #97
-2025/10/09-16:43:53.093 77b8 Delete type=2 #99
-2025/10/09-16:43:53.093 77b8 Delete type=2 #101
-2025/10/09-16:43:53.094 77b8 Delete type=2 #103
-2025/10/09-16:43:53.094 77b8 Delete type=2 #106
-2025/10/09-16:47:12.209 77b8 Level-0 table #109: started
-2025/10/09-16:47:12.215 77b8 Level-0 table #109: 79021 bytes OK
-2025/10/09-16:47:12.217 77b8 Delete type=0 #105
-2025/10/09-16:49:49.824 8bf0 Level-0 table #111: started
-2025/10/09-16:49:49.830 8bf0 Level-0 table #111: 71077 bytes OK
-2025/10/09-16:49:49.833 8bf0 Delete type=0 #108
+2025/10/18-20:04:48.866 7080 Reusing MANIFEST C:\shop_parser\user_data\Default\Session Storage/MANIFEST-000001
+2025/10/18-20:04:48.868 7080 Recovering log #130
+2025/10/18-20:04:48.871 7080 Level-0 table #133: started
+2025/10/18-20:04:48.880 7080 Level-0 table #133: 71013 bytes OK
+2025/10/18-20:04:48.886 7080 Delete type=0 #130
+2025/10/18-20:05:50.400 7080 Level-0 table #136: started
+2025/10/18-20:05:50.409 7080 Level-0 table #136: 54548 bytes OK
+2025/10/18-20:05:50.411 7080 Delete type=0 #134
+2025/10/18-20:05:50.413 7080 Compacting 4@0 + 1@1 files
+2025/10/18-20:05:50.423 7080 Generated table #137@0: 383 keys, 58370 bytes
+2025/10/18-20:05:50.424 7080 Compacted 4@0 + 1@1 files => 58370 bytes
+2025/10/18-20:05:50.424 7080 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/10/18-20:05:50.426 7080 Delete type=2 #127
+2025/10/18-20:05:50.427 7080 Delete type=2 #129
+2025/10/18-20:05:50.427 7080 Delete type=2 #131
+2025/10/18-20:05:50.427 7080 Delete type=2 #133
+2025/10/18-20:05:50.427 7080 Delete type=2 #136
